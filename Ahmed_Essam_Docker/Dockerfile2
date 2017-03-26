@@ -1,0 +1,17 @@
+FROM ubuntu:14.04
+# Install php-fpm
+RUN apt-get update  && apt-get -y upgrade
+RUN apt-get -y  install php5-fpm php5-mysql
+# Adding the configuration files
+ADD config/www.conf /etc/php5/fpm/pool.d/www.conf
+ADD config/php-fpm.conf /etc/php5/fpm/php-fpm.conf
+# Add the run script to run the services and configure db
+ADD run.sh /run.sh
+
+#add the volume for the wordpress application
+VOLUME /var/www/app
+
+# Expose the port 9000
+EXPOSE 9000
+# Run the run.sh script
+ENTRYPOINT [ "/bin/bash", "/run.sh"]
