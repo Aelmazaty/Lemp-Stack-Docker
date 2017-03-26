@@ -2,4 +2,5 @@ This project is an implementation of LEMP Stack using Docker
 Download the folder
 make sure to cd inside the directory
 run build.sh script
+connect through your brouser using port 8080
 
