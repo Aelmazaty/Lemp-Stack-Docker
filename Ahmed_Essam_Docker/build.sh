@@ -26,7 +26,7 @@ cd ..
 docker run -d --name mysql ahmed_essam/mysql
 docker run -it --name downloader ahmed_essam/downloader
 docker run -d --name app1 --volumes-from downloader --link mysql:db ahmed_essam/phpfpm
-docker run -d -p 80:80 --name nginx --volumes-from downloader --link app1:app1 ahmed_essam/nginx
+docker run -d -p 8080:80 --name nginx --volumes-from downloader --link app1:app1 ahmed_essam/nginx
 
 
 
